@@ -50,6 +50,15 @@ comment on column race.race_city is 'Город забега';
 comment on column race.race_address is 'Адрес забега';
 comment on column race.description is 'Описание забега';
 
+-- alter table race
+
+alter table race alter column id set not null;
+alter table race alter column is_active set not null;
+alter table race alter column race_date set not null;
+alter table race alter column race_name set not null;
+alter table race alter column race_city set not null;
+alter table race alter column race_address set not null;
+
 -- create table distance
 
 create table if not exists distance
@@ -67,6 +76,11 @@ comment on column distance.distance_name is 'Название дистанции
 comment on column distance.entrance_fee is 'Сумма вступительного взноса';
 comment on column distance.entrance_currency is 'Валюта вступительного взноса';
 comment on column distance.racer_limit is 'Лимит участников';
+
+-- alter table distance
+
+alter table distance alter column id set not null;
+alter table distance alter column distance_name set not null;
 
 -- create table registration
 
@@ -97,6 +111,19 @@ comment on column registration.gender is 'Пол участника';
 comment on column registration.email is 'Адрес электронной почты участника';
 comment on column registration.mobile_phone is 'Номер мобильного телефона участника';
 comment on column registration.delete_reason is 'Причина удаления регистрации';
+
+-- alter table registration
+
+alter table registration alter column id set not null;
+alter table registration alter column creation_date set not null;
+alter table registration alter column status set not null;
+alter table registration alter column last_name set not null;
+alter table registration alter column first_name set not null;
+alter table registration alter column middle_name set not null;
+alter table registration alter column birth_date set not null;
+alter table registration alter column gender set not null;
+alter table registration alter column email set not null;
+alter table registration alter column mobile_phone set not null;
 
 -- drop tables
 
