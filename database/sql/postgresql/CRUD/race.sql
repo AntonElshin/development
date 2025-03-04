@@ -17,7 +17,13 @@ insert into race (is_active, race_date, race_name, race_city, race_address) valu
 -- найти все записи
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race;
 
@@ -30,7 +36,13 @@ select ceil( count(*) / 1 ) from race; -- limit = 1
 -- передаём в запрос максимальный идентификатор с прошлой страницы или 0 для первой
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -38,7 +50,13 @@ where
 limit 1;
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -48,7 +66,13 @@ limit 1;
 -- найти по идентификатору
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -67,7 +91,13 @@ where
 -- найти по признаку активности
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -76,7 +106,13 @@ where
 -- найти по дате забега через >= и через <=
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -86,7 +122,13 @@ where
 -- найти по дате забега через between
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -95,7 +137,13 @@ where
 -- найти по названию, приводя всё к нижнему регистру через lower
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -104,7 +152,13 @@ where
 -- найти по городу, приводя всё к нижнему регистру через lower
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -113,7 +167,13 @@ where
 -- найти по признаку активности и дате
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -123,7 +183,13 @@ where
 -- найти по признаку активности и названию
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -133,7 +199,13 @@ where
 -- найти по признаку активности и городу
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -143,7 +215,13 @@ where
 -- найти по признаку активности, дате и названию
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -154,7 +232,13 @@ where
 -- найти по признаку активности, дате и городу
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -165,7 +249,13 @@ where
 -- найти по признаку активности, дате, названию и городу
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -186,7 +276,13 @@ where
 -- найти по признаку активности
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -195,7 +291,13 @@ where
 -- найти по дате забега через >= и через <=
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -205,7 +307,13 @@ where
 -- или по дате забега через between
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -214,7 +322,13 @@ where
 -- найти по строке поиска
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -224,7 +338,13 @@ where
 -- найти по признаку активности и дате
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -234,7 +354,13 @@ where
 -- найти по признаку активности и строке поиска
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
@@ -247,7 +373,13 @@ where
 -- найти по признаку активности, дате и строке поиска
 
 select
-    *
+    id,
+    is_active,
+    race_date,
+    race_name,
+    race_city,
+    race_address,
+    description
 from
     race
 where
