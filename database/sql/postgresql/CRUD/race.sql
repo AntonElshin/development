@@ -389,17 +389,6 @@ where
 
 -- updates (Update)
 
--- обновляем все записи
-
-update race
-set
-    is_active = true,
-    race_date = '2025-02-22 12:00:00.000000',
-    race_name = 'Забег настоящих мужчин',
-    race_city = 'Москва',
-    race_address = 'Перовский сквер',
-    description = null;
-
 -- обновляем все поля одной записи по идентификатору
 
 update race
