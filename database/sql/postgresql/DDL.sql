@@ -59,7 +59,8 @@ create table if not exists distance
     distance_name varchar(4) not null,
     entrance_fee numeric,
     entrance_currency varchar(3),
-    racer_limit integer
+    racer_limit integer,
+    constraint distance_race_id_distance_name_key unique (race_id, distance_name)
 );
 
 comment on table distance is 'Дистанция забега';
@@ -69,10 +70,6 @@ comment on column distance.distance_name is 'Название дистанции
 comment on column distance.entrance_fee is 'Сумма вступительного взноса';
 comment on column distance.entrance_currency is 'Валюта вступительного взноса';
 comment on column distance.racer_limit is 'Лимит участников';
-
--- alter table distance
-
-alter table distance add constraint distance_race_id_distance_name_idx unique (race_id, distance_name);
 
 -- create table registration
 
