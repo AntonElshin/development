@@ -32,13 +32,14 @@ create database development
 
 create table if not exists race
 (
-    id bigint not null unique,
+    id bigint,
     is_active boolean not null,
     race_date timestamp without time zone not null,
     race_name varchar(200) not null,
     race_city varchar(100) not null,
     race_address varchar(200) not null,
-    description text
+    description text,
+    constraint race_id_pk primary key (id)
 );
 
 comment on table race is 'Забег';
@@ -54,11 +55,12 @@ comment on column race.description is 'Описание забега';
 
 create table if not exists distance
 (
-    id bigint not null unique,
+    id bigint,
     distance_name varchar(4) not null,
     entrance_fee numeric,
     entrance_currency varchar(3),
-    racer_limit integer
+    racer_limit integer,
+    constraint distance_id_pk primary key (id)
 );
 
 comment on table distance is 'Дистанция забега';
@@ -72,7 +74,7 @@ comment on column distance.racer_limit is 'Лимит участников';
 
 create table if not exists registration
 (
-    id bigint not null unique,
+    id bigint,
     creation_date timestamp without time zone not null,
     status varchar(20) not null,
     last_name varchar(100) not null,
@@ -82,7 +84,8 @@ create table if not exists registration
     gender varchar(6) not null,
     email varchar(100) not null,
     mobile_phone varchar(10) not null,
-    delete_reason varchar(20)
+    delete_reason varchar(20),
+    constraint registration_id_pk primary key (id)
 );
 
 comment on table registration is 'Регистрация на дистанцию забега';
