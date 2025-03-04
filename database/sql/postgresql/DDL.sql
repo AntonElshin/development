@@ -70,6 +70,10 @@ comment on column distance.entrance_fee is 'Сумма вступительно�
 comment on column distance.entrance_currency is 'Валюта вступительного взноса';
 comment on column distance.racer_limit is 'Лимит участников';
 
+-- alter table distance
+
+alter table distance add constraint distance_race_id_distance_name_idx unique (race_id, distance_name);
+
 -- create table registration
 
 create table if not exists registration
