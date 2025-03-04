@@ -35,7 +35,7 @@ create table if not exists race
     id bigint not null,
     is_active boolean not null,
     race_date timestamp without time zone not null,
-    race_name varchar(100) not null,
+    race_name varchar(200) not null,
     race_city varchar(100) not null,
     race_address varchar(200) not null,
     description text
@@ -49,10 +49,6 @@ comment on column race.race_name is 'Название забега';
 comment on column race.race_city is 'Город забега';
 comment on column race.race_address is 'Адрес забега';
 comment on column race.description is 'Описание забега';
-
--- alter table race
-
-alter table race alter column race_name type varchar(200);
 
 -- create table distance
 
