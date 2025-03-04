@@ -21,6 +21,52 @@ select
 from
     race;
 
+-- найти с постраничной разбивкой через смещение и лимит
+
+-- определяем количество страниц
+
+select ceil( count(*) / 1 ) from race; -- limit = 1
+
+-- передаём в запрос смещение относительно начала или 0 для первой
+
+select
+    *
+from
+    race
+offset 0
+limit 1;
+
+select
+    *
+from
+    race
+offset 1
+limit 1;
+
+-- найти с постраничной разбивкой условие where и лимит
+
+-- определяем количество страниц
+
+select ceil( count(*) / 1 ) from race; -- limit = 1
+
+-- передаём в запрос максимальный идентификатор с прошлой страницы или 0 для первой
+
+select
+    *
+from
+    race
+where
+    id >= 0
+limit 1;
+
+select
+    *
+from
+    race
+where
+    id >= 1
+limit 1;
+
 -- найти по идентификатору
 
 select
