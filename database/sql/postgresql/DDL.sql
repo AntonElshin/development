@@ -55,12 +55,11 @@ comment on column race.description is 'Описание забега';
 create table if not exists distance
 (
     id bigint primary key,
-    race_id bigint not null,
+    race_id bigint not null references race (id),
     distance_name varchar(4) not null,
     entrance_fee numeric,
     entrance_currency varchar(3),
-    racer_limit integer,
-    constraint distance_race_id_fk foreign key (race_id) references race (id)
+    racer_limit integer
 );
 
 comment on table distance is 'Дистанция забега';
@@ -76,7 +75,7 @@ comment on column distance.racer_limit is 'Лимит участников';
 create table if not exists registration
 (
     id bigint primary key,
-    distance_id bigint not null,
+    distance_id bigint not null references distance (id),
     creation_date timestamp without time zone not null,
     status varchar(20) not null,
     last_name varchar(100) not null,
@@ -86,8 +85,7 @@ create table if not exists registration
     gender varchar(6) not null,
     email varchar(100) not null,
     mobile_phone varchar(10) not null,
-    delete_reason varchar(20),
-    constraint registration_distance_id_fk foreign key (distance_id) references distance (id)
+    delete_reason varchar(20)
 );
 
 comment on table registration is 'Регистрация на дистанцию забега';
