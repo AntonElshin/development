@@ -7,11 +7,6 @@
 insert into race (is_active, race_date, race_name, race_city, race_address, description) values
     (true, '2025-02-22 12:00:00.000000', 'Забег настоящих мужчин', 'Москва', 'Перовский сквер', null);
 
--- добавить запись только с ненулевыми полями
-
-insert into race (is_active, race_date, race_name, race_city, race_address) values
-    (true, '2025-02-22 12:00:00.000000', 'Забег настоящих мужчин', 'Москва', 'Перовский сквер');
-
 -- selects (Read)
 
 -- найти все записи
