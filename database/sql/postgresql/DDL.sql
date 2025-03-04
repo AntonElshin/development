@@ -38,7 +38,8 @@ create table if not exists race
     race_name varchar(200) not null,
     race_city varchar(100) not null,
     race_address varchar(200) not null,
-    description text
+    description text,
+    constraint race_id_idx unique (id)
 );
 
 comment on table race is 'Забег';
@@ -58,7 +59,8 @@ create table if not exists distance
     distance_name varchar(4) not null,
     entrance_fee numeric,
     entrance_currency varchar(3),
-    racer_limit integer
+    racer_limit integer,
+    constraint distance_id_idx unique (id)
 );
 
 comment on table distance is 'Дистанция забега';
@@ -82,7 +84,8 @@ create table if not exists registration
     gender varchar(6) not null,
     email varchar(100) not null,
     mobile_phone varchar(10) not null,
-    delete_reason varchar(20)
+    delete_reason varchar(20),
+    constraint registration_id_idx unique (id)
 );
 
 comment on table registration is 'Регистрация на дистанцию забега';
