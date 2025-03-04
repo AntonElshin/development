@@ -404,10 +404,6 @@ where
 
 -- deletes (Delete)
 
--- удаляем все записи
-
-delete from race;
-
 -- удаляем запись по идентификатору
 
 delete from race where id = 1;
