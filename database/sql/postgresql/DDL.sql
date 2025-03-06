@@ -103,8 +103,88 @@ comment on column registration.email is 'Адрес электронной по�
 comment on column registration.mobile_phone is 'Номер мобильного телефона участника';
 comment on column registration.delete_reason is 'Причина удаления регистрации';
 
+-- create stored procedure add_registration
+
+create or replace procedure add_registration(
+    _distance_id bigint,
+    _creation_date timestamp without time zone,
+    _last_name varchar(100),
+    _first_name varchar(100),
+    _middle_name varchar(100),
+    _birth_date timestamp without time zone,
+    _gender varchar(6),
+    _email varchar(100),
+    _mobile_phone varchar(10),
+    _delete_reason boolean,
+    inout _is_added boolean default false
+)
+language plpgsql
+AS $$
+declare
+    _status varchar(20);
+    _entrance_fee numeric;
+    _racer_limit int default null;
+begin
+    select entrance_fee, racer_limit into _entrance_fee, _racer_limit from distance where id = _distance_id;
+
+    if _entrance_fee is not null then
+        _status = 'PENDING_PAYMENT';
+    else
+        _status = 'ACCEPTED';
+    end if;
+
+    if _racer_limit is null or (_racer_limit is not null and _racer_limit > 0) then
+        insert into registration (distance_id, creation_date, status, last_name, first_name, middle_name, birth_date, gender, email, mobile_phone, delete_reason) values
+            (_distance_id, _creation_date, _status, _last_name, _first_name, _middle_name, _birth_date, _gender, _email, _mobile_phone, _delete_reason);
+
+        update distance set racer_limit = racer_limit - 1 where id = _distance_id;
+
+        _is_added = true;
+    else
+        raise exception 'Unable to add registration: racer limit is 0';
+    end if;
+
+    commit;
+end;
+$$;
+
+-- create stored procedure delete_registration
+
+create or replace procedure delete_registration(
+    _registration_id bigint
+)
+language plpgsql
+AS $$
+declare
+    _distance_id bigint;
+    _racer_limit int default null;
+    _status varchar(20);
+begin
+    select status, distance_id into _status, _distance_id from registration where id = _registration_id;
+
+    if _status = 'PAID' then
+        update registration set status = 'PENDING REFUND' where id = _registration_id;
+    else
+        delete from registration where id = _registration_id;
+    end if;
+
+    select id, racer_limit into _distance_id, _racer_limit from distance where id = _distance_id;
+
+    if _racer_limit is not null then
+        update distance set racer_limit = racer_limit + 1 where id = _distance_id;
+    end if;
+
+    commit;
+end;
+$$;
+
 -- drop tables
 
 drop table registration;
 drop table distance;
 drop table race;
+
+-- drop procedures
+
+drop procedure add_registration;
+drop procedure delete_registration;
