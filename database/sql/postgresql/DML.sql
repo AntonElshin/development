@@ -60,22 +60,47 @@ insert into registration (distance_id, creation_date, status, last_name, first_n
 insert into registration (distance_id, creation_date, status, last_name, first_name, middle_name, birth_date, gender, email, mobile_phone, delete_reason) values
     (5, '2025-02-10 07:08:22.000000', 'ACCEPTED', 'Комарова', 'Юлия', 'Игоревна', '2001-09-16 00:00:00.000000', 'FEMALE', 'komarova_yi@mail.ru', '9999999991', null);
 
--- call add_registration
+-- add registrations
 
-call add_registration(1, '2025-02-01 15:16:01.000000', 'Петров', 'Василий', 'Александрович', '1985-04-17 00:00:00.000000', 'MALE', 'petrov_va@mail.ru', '9999999999', null);
-call add_registration(1, '2025-02-02 10:05:35.000000', 'Волков', 'Сергей', 'Петрович', '1995-08-01 00:00:00.000000', 'MALE', 'volkov_sp@mail.ru', '9999999998', null);
-call add_registration(2, '2025-02-03 22:27:10.000000', 'Сидоров', 'Алексей', 'Михайлович', '1995-08-01 00:00:00.000000', 'MALE', 'sidorov_am@mail.ru', '9999999997', null);
-call add_registration(6, '2025-02-04 17:12:30.000000', 'Андреева', 'Дарья', 'Сергеевна', '1991-11-12 00:00:00.000000', 'FEMALE', 'andreeva_ds@mail.ru', '9999999996', null);
-call add_registration(5, '2025-02-05 09:08:56.000000', 'Петров', 'Василий', 'Александрович', '1985-04-17 00:00:00.000000', 'MALE', 'petrov_va@mail.ru', '9999999999', null);
-call add_registration(5, '2025-02-06 11:12:07.000000', 'Борисова', 'Екатерина', 'Андреевна', '1997-05-19 00:00:00.000000', 'FEMALE', 'borisova_ea@mail.ru', '9999999995', null);
-call add_registration(5, '2025-02-07 14:57:39.000000', 'Смирнова', 'Татьяна', 'Васильевна', '2001-01-30 00:00:00.000000', 'FEMALE', 'smirnova_tv@mail.ru', '9999999994', null);
-call add_registration(5, '2025-02-08 12:47:13.000000', 'Кузнецова', 'Надежда', 'Игоревна', '2002-02-17 00:00:00.000000', 'FEMALE', 'kuznetsova_ni@mail.ru', '9999999993', null);
-call add_registration(5, '2025-02-09 16:34:05.000000', 'Архипова', 'Ольга', 'Михайловна', '2005-07-01 00:00:00.000000', 'FEMALE', 'arkhipova_om@mail.ru', '9999999992', null);
-call add_registration(5, '2025-02-10 07:08:22.000000', 'Комарова', 'Юлия', 'Игоревна', '2001-09-16 00:00:00.000000', 'FEMALE', 'komarova_yi@mail.ru', '9999999991', null);
+call get_distance(1);
+call add_registration(1, 1, '2025-02-01 15:16:01.000000', 'Петров', 'Василий', 'Александрович', '1985-04-17 00:00:00.000000', 'MALE', 'petrov_va@mail.ru', '9999999999', null);
 
--- call delete_registration
+call get_distance(1);
+call add_registration(1, 2, '2025-02-02 10:05:35.000000', 'Волков', 'Сергей', 'Петрович', '1995-08-01 00:00:00.000000', 'MALE', 'volkov_sp@mail.ru', '9999999998', null);
 
-call delete_registration(9);
+call get_distance(2);
+call add_registration(2, 1, '2025-02-03 22:27:10.000000', 'Сидоров', 'Алексей', 'Михайлович', '1995-08-01 00:00:00.000000', 'MALE', 'sidorov_am@mail.ru', '9999999997', null);
+
+call get_distance(6);
+call add_registration(6, 1, '2025-02-04 17:12:30.000000', 'Андреева', 'Дарья', 'Сергеевна', '1991-11-12 00:00:00.000000', 'FEMALE', 'andreeva_ds@mail.ru', '9999999996', null);
+
+call get_distance(5);
+call add_registration(5, 1, '2025-02-05 09:08:56.000000', 'Петров', 'Василий', 'Александрович', '1985-04-17 00:00:00.000000', 'MALE', 'petrov_va@mail.ru', '9999999999', null);
+
+call get_distance(5);
+call add_registration(5, 2, '2025-02-06 11:12:07.000000', 'Борисова', 'Екатерина', 'Андреевна', '1997-05-19 00:00:00.000000', 'FEMALE', 'borisova_ea@mail.ru', '9999999995', null);
+
+call get_distance(5);
+call add_registration(5, 3, '2025-02-07 14:57:39.000000', 'Смирнова', 'Татьяна', 'Васильевна', '2001-01-30 00:00:00.000000', 'FEMALE', 'smirnova_tv@mail.ru', '9999999994', null);
+
+call get_distance(5);
+call add_registration(5, 4, '2025-02-08 12:47:13.000000', 'Кузнецова', 'Надежда', 'Игоревна', '2002-02-17 00:00:00.000000', 'FEMALE', 'kuznetsova_ni@mail.ru', '9999999993', null);
+
+call get_distance(5);
+call add_registration(5, 5, '2025-02-09 16:34:05.000000', 'Архипова', 'Ольга', 'Михайловна', '2005-07-01 00:00:00.000000', 'FEMALE', 'arkhipova_om@mail.ru', '9999999992', null);
+
+call get_distance(5);
+call add_registration(5, 6, '2025-02-10 07:08:22.000000', 'Комарова', 'Юлия', 'Игоревна', '2001-09-16 00:00:00.000000', 'FEMALE', 'komarova_yi@mail.ru', '9999999991', null);
+
+-- delete registrations
+
+call get_distance(5);
+call delete_registration(9, 7);
+
+-- add registration after delete
+
+call get_distance(5);
+call add_registration(5, 8, '2025-02-10 07:08:22.000000', 'Комарова', 'Юлия', 'Игоревна', '2001-09-16 00:00:00.000000', 'FEMALE', 'komarova_yi@mail.ru', '9999999991', null);
 
 -- deletes
 
