@@ -50,6 +50,10 @@ comment on column race.race_city is 'Город забега';
 comment on column race.race_address is 'Адрес забега';
 comment on column race.description is 'Описание забега';
 
+-- alter table race
+
+alter table race alter column race_name type varchar(200);
+
 -- create table distance
 
 create table if not exists distance
