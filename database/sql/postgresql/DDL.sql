@@ -28,6 +28,18 @@ create database development
 
 -- start development
 
+-- create table auto_pk_support
+
+create table auto_pk_support
+(
+    table_name varchar(30) primary key,
+    last_id bigint not null
+);
+
+comment on table auto_pk_support is 'Общая таблица идентификаторов';
+comment on column auto_pk_support.table_name is 'Название таблицы';
+comment on column auto_pk_support.last_id is 'Значение последнего идентификатора';
+
 -- create table race
 
 create table if not exists race
@@ -105,6 +117,7 @@ comment on column registration.delete_reason is 'Причина удаления
 
 -- drop tables
 
+drop table auto_pk_support;
 drop table registration;
 drop table distance;
 drop table race;
