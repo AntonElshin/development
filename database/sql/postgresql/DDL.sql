@@ -28,18 +28,11 @@ create database development
 
 -- start development
 
--- create sequence race_seq
-
-create sequence race_seq
-    increment 1
-    start 1
-    minvalue 1;
-
 -- create table race
 
 create table if not exists race
 (
-    id bigint primary key default nextval('race_seq'),
+    id bigserial primary key,
     is_active boolean not null,
     race_date timestamp without time zone not null,
     race_name varchar(200) not null,
@@ -57,18 +50,11 @@ comment on column race.race_city is 'Город забега';
 comment on column race.race_address is 'Адрес забега';
 comment on column race.description is 'Описание забега';
 
--- create sequence distance_seq
-
-create sequence distance_seq
-    increment 1
-    start 1
-    minvalue 1;
-
 -- create table distance
 
 create table if not exists distance
 (
-    id bigint primary key default nextval('distance_seq'),
+    id bigserial primary key,
     race_id bigint not null references race (id),
     distance_name varchar(4) not null,
     entrance_fee numeric,
@@ -85,18 +71,11 @@ comment on column distance.entrance_fee is 'Сумма вступительно�
 comment on column distance.entrance_currency is 'Валюта вступительного взноса';
 comment on column distance.racer_limit_left is 'Оставшийся лимит участников';
 
--- create sequence registration_seq
-
-create sequence registration_seq
-    increment 1
-    start 1
-    minvalue 1;
-
 -- create table registration
 
 create table if not exists registration
 (
-    id bigint primary key default nextval('registration_seq'),
+    id bigserial primary key,
     distance_id bigint not null references distance (id),
     creation_date timestamp without time zone not null,
     status varchar(20) not null,
@@ -129,9 +108,3 @@ comment on column registration.delete_reason is 'Причина удаления
 drop table registration;
 drop table distance;
 drop table race;
-
--- drop sequences
-
-drop sequence registration_seq;
-drop sequence distance_seq;
-drop sequence race_seq;
